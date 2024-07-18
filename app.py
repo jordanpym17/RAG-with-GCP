@@ -7,20 +7,10 @@ from app_chat_gcp import converse_conversation
 from reference_buttons import make_button
 
 #Intialize GCP detials-----------------------------------
-# Load configuration from TOML file
 project_id = "YOUR PROJECT ID"
 location = "LOCATION"          # Values: "global", "us", "eu"
 engine_id = "ENGINE ID"
 data_store_id = "DATA STORE ID"
-#search_query = "Ask any question about Sappi Ngodwana"
-#Intialize GCP detials-----------------------------------  
-        
-
-
-#avatar_url='https://raw.githubusercontent.com/jordanpym17/streamlit_stuff/main/Picture2.png'
-#with st.chat_message("assistant",avatar=avatar_url):
-
-#Streamlit app
 
 
 
@@ -41,9 +31,6 @@ st.write(":people_holding_hands: Developed by Jordan Pym and Aletia van Rooyen f
 st.write(" :envelope_with_arrow: [Suggestions/questions/concerns](https://forms.office.com/r/NeaLXgyy9W?origin=lprLink)")
 
 
-
-
-
 # Check if the conversation is already initialized
 if 'conversation_name' not in st.session_state:
     st.session_state.client, st.session_state.conversation_name, st.session_state.parent = initialize_conversation(project_id, location, data_store_id)
@@ -57,14 +44,6 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"],avatar=avatar if message["role"]=="assistant" else avatar2):
         st.markdown(message["content"])
-        #if message["role"]=="assistant":
-            #button()
-
-
-
-#st.markdown("Hi, welcome to SappiSync. I' am trained on most Ngodwana standards, procedures and policies. Feel free to ask me any questions. I was created by Jordan Pym and Aletia Van Rooyen for the 2024 EIT Challenge")
-#with st.chat_message("assistant",avatar=avatar):
-#        st.markdown("How may I assist you?") 
 
 # Accept user input
 if prompt := st.chat_input("Ask me a question?"):
@@ -77,38 +56,22 @@ if prompt := st.chat_input("Ask me a question?"):
             st.session_state.messages = []
             st.experimental_rerun()  # Rerun the app
 
-    
+    # Response from Discovery engine in layered
     response_all = converse_conversation(st.session_state.client, st.session_state.conversation_name, st.session_state.parent, prompt)
-    #print(response_all)
     response = response_all.reply.summary.summary_text
-    #references = response_all.reply.summary.summary_with_metadata.references
     references = response_all.reply.summary.summary_with_metadata.references
-    #if references:
-        #st.markdown("#### References")
-       # i = 1
-       # for reference in references:
-       #     reference_text = f"[{i}] **{reference.uri}**"
-       #     # st.markdown(reference_text)
-       #     response += f"\n{reference_text}\n"
-       #     i += 1
 
-    
     # Display assistant response in chat message container
     with st.chat_message("assistant",avatar=avatar):
         st.markdown(response)
         for reference in references: 
             make_button(reference.uri)
-        #button()
+        
 
     i = 1
     for reference in references:
         reference_text = f"[{i}] **{reference.title}**"
-        # st.markdown(reference_text)
-        #make_button(reference.uri)
         response += f"\n{reference_text}\n"
         i += 1
-        
 
-      #  st.markdown(response)
-    # Add assistant response to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
