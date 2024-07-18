@@ -26,25 +26,6 @@ This project involves several key steps:
 6. **API Integration**: Utilize the Gemini API for data search and summary generation.
 7. **User Interface**: Implement a Streamlit-based UI for interaction.
 
-## Folder Structure
-
-project-root/
-│
-├── Doc_ingestion/
-│ ├── script1.py
-│ ├── script2.py
-│ └── script3.py
-│
-├── requirements.txt
-├── main.py
-└── README.md
-
-
-- **Doc_ingestion/**: Contains scripts for data preprocessing and formatting.
-- **requirements.txt**: Lists the necessary Python libraries.
-- **main.py**: Main application script.
-- **README.md**: This readme file.
-
 ## Installation
 
 1. **Clone the repository**:
