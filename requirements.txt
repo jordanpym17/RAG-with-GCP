@@ -1,0 +1,5 @@
+google-api-core==2.19.1
+google-auth==2.31.0
+google-cloud-discoveryengine==0.11.14
+google-cloud-storage
+streamlit
