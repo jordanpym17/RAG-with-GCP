@@ -1,0 +1,9 @@
+pywin32
+pdfminer.six
+pdf2image
+pytesseract
+Pillow
+PyMuPDF
+PyPDF2
+reportlab
+pandas
