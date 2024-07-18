@@ -40,9 +40,5 @@ def process_pdfs_in_directory(input_dir, output_dir):
 
     print("Processing complete.")
 
-if __name__ == "__main__":
-    input_directory = "C:\\Users\\Jordan\\Desktop\\Test"
-    output_directory = "C:\\Users\\Jordan\\Desktop\\test_result"
-    
-    process_pdfs_in_directory(input_directory, output_directory)
+
 
