@@ -1,45 +1,4 @@
-# GCP-based Retrieval-Augmented Generation (RAG) System
 
-Welcome to the GCP-based Retrieval-Augmented Generation (RAG) System repository. This project leverages Google Cloud Platform (GCP) to build a scalable RAG system for handling large amounts of data. The data, originating from various formats and conditions, undergoes preprocessing before being ingested into a GCP Datastore. The system uses the Gemini API for data search and summary, with a user interface built using Streamlit.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Folder Structure](#folder-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Requirements](#requirements)
-- [License](#license)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-
-## Overview
-
-This project involves several key steps:
-
-1. **Data Preprocessing**: Convert and format data files from various formats (doc, pdf) to a consistent format.
-2. **Local Database Creation**: Build a local version of the company's database.
-3. **Data Ingestion**: Sequentially process the files and make necessary format changes.
-4. **Cloud Storage**: Store the processed data in GCP Cloud Buckets.
-5. **Datastore Creation**: Use GCP Console to create a scalable Datastore, serving as the vector database.
-6. **API Integration**: Utilize the Gemini API for data search and summary generation.
-7. **User Interface**: Implement a Streamlit-based UI for interaction.
-
-## Folder Structure
-
-
-Yes, you can simply copy and paste the markdown content into your README.md file. The markdown syntax will render properly on GitHub, presenting a nicely formatted readme for your repository.
-
-If you also want to include custom CSS for further styling, GitHub's Markdown rendering does not support custom CSS directly within the README.md file. However, you can use HTML tags within your Markdown and apply inline styles.
-
-Here's how you can do it:
-
-Markdown Content: Copy and paste the provided markdown content into your README.md file.
-
-Adding Inline Styles: If you want to add some specific styles, you can use HTML tags and inline styles within your Markdown. For example:
-
-markdown
-Copy code
 # GCP-based Retrieval-Augmented Generation (RAG) System
 
 <p style="color:blue; font-size:20px;">Welcome to the GCP-based Retrieval-Augmented Generation (RAG) System repository. This project leverages Google Cloud Platform (GCP) to build a scalable RAG system for handling large amounts of data. The data, originating from various formats and conditions, undergoes preprocessing before being ingested into a GCP Datastore. The system uses the Gemini API for data search and summary, with a user interface built using Streamlit.</p>
