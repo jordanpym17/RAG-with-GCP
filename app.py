@@ -8,10 +8,10 @@ from reference_buttons import make_button
 
 #Intialize GCP detials-----------------------------------
 # Load configuration from TOML file
-project_id = "dev-epsilon-422716-g2"
-location = "global"          # Values: "global", "us", "eu"
-engine_id = "sappi-search_1718361308237"
-data_store_id = "sappi-data2_1718361359265"
+project_id = "YOUR PROJECT ID"
+location = "LOCATION"          # Values: "global", "us", "eu"
+engine_id = "ENGINE ID"
+data_store_id = "DATA STORE ID"
 #search_query = "Ask any question about Sappi Ngodwana"
 #Intialize GCP detials-----------------------------------  
         
