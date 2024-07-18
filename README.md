@@ -71,14 +71,6 @@ project-root/
 
     Follow the instructions to install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
 
-5. **Authenticate with Google Cloud**:
-
-    After installing the SDK, authenticate with your Google Cloud account:
-
-    ```sh
-    gcloud auth login
-    gcloud config set project [YOUR_PROJECT_ID]
-    ```
 
 ## Usage
 
