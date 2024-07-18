@@ -90,23 +90,6 @@ project-root/
     streamlit run main.py
     ```
 
-## Requirements
-
-The `requirements.txt` file includes all the necessary libraries for this project. Make sure to install them in your virtual environment.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please fork this repository and submit a pull request for any enhancements or bug fixes.
-
-## Acknowledgements
-
-- Thanks to Google Cloud Platform for providing robust and scalable cloud services.
-- Special thanks to the Streamlit team for the easy-to-use UI framework.
-
 ## Notes
 
 - Replace `ProjectID`, `Location`, and `Datastore` with your specific project details when setting up the GCP components.
