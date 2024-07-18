@@ -51,6 +51,3 @@ def convert_and_delete_docs_all_directories(directory):
 
     word.Quit()
 
-    # Specify your directory path here  
-#convert_and_delete_docs_all_directories("C:\\Users\\Jordan\\Downloads\\Paper")
-#print("done")
