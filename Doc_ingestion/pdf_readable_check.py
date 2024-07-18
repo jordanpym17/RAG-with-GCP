@@ -18,7 +18,7 @@ def check_pdf_directory(directory):
     return pdfs_without_text
 
 # Specify your directory path here
-directory_path = "C:\\Users\\Jordan\\Desktop\\Test"
+directory_path = "inserd directory"
 pdfs_without_text = check_pdf_directory(directory_path)
 
 # Print all PDFs that have no readable text
