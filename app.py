@@ -1,9 +1,9 @@
 import streamlit as st
 import random
 import toml
-from api_call_test import search_sample
-from app_chat_gcp import initialize_conversation
-from app_chat_gcp import converse_conversation
+#from api_call_test import search_sample
+from Gemini_api import initialize_conversation
+from Gemini_api import converse_conversation
 from reference_buttons import make_button
 
 #Intialize GCP detials-----------------------------------
