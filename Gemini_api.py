@@ -3,9 +3,9 @@ from google.api_core.client_options import ClientOptions
 from google.cloud import discoveryengine_v1 as discoveryengine
 
 # TODO(developer): Uncomment these variables before running the sample.
-project_id = "dev-epsilon-422716-g2"
+project_id = "your project ID"
 location = "global"  # Values: "global", "us", "eu"
-data_store_id = "sappi-data2_1718361359265"
+data_store_id = "your data store"
 
 def multi_turn_search_sample(
     project_id: str,
