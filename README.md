@@ -1,82 +1,70 @@
-
 # GCP-based Retrieval-Augmented Generation (RAG) System
 
 <p style="color:blue; font-size:20px;">Welcome to the GCP-based Retrieval-Augmented Generation (RAG) System repository. This project leverages Google Cloud Platform (GCP) to build a scalable RAG system for handling large amounts of data. The data, originating from various formats and conditions, undergoes preprocessing before being ingested into a GCP Datastore. The system uses the Gemini API for data search and summary, with a user interface built using Streamlit.</p>
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Folder Structure](#folder-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Requirements](#requirements)
-- [License](#license)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
 
 ## Overview
 
 This project involves several key steps:
 
-1. **Data Preprocessing**: Convert and format data files from various formats (doc, pdf) to a consistent format.
-2. **Local Database Creation**: Build a local version of the company's database.
-3. **Data Ingestion**: Sequentially process the files and make necessary format changes.
-4. **Cloud Storage**: Store the processed data in GCP Cloud Buckets.
-5. **Datastore Creation**: Use GCP Console to create a scalable Datastore, serving as the vector database.
-6. **API Integration**: Utilize the Gemini API for data search and summary generation.
-7. **User Interface**: Implement a Streamlit-based UI for interaction.
+1. **Local Database Creation**: Build a local version of the company's database.
+2. **Data Preprocessing**: Convert and format data files from various formats (doc, pdf) to a consistent format.
+3. **Cloud Storage**: Store the processed data in GCP Cloud Buckets.
+4. **Datastore Creation**: Use GCP Console to create a scalable Datastore, serving as the vector database.
+5. **API Integration**: Utilize the Vertexai API for data search and summary generation.
+6. **User Interface**: Implement a Streamlit-based UI for interaction.
 
-## Installation
 
-1. **Clone the repository**:
+## Google Cloud Console
 
-    ```sh
-    git clone https://github.com/your-username/your-repository.git
-    cd your-repository
-    ```
+1. **GCP account setup**:
+   - Create Google cloud account
+   - Upload documents to cloud storage bucket (only .pdf/doc)
+   - Create data store and import storage bucket (use ** after path to include sub-directories)
+   - Create a search app in agent builder and link to data store
+   - Test search bot in preview tap
 
-2. **Create a virtual environment**:
+## Installation for local deployment 
+
+1. **Install Google cloud CLI**:
+
+I used the SDK installer: https://cloud.google.com/sdk/docs/install#installation_instructions
+This is for Authorization during development. Be sure to setup the CLI in the SDK manager with your google accound and setup the ADC. 
+
+2. **Clone the repository**:
 
     ```sh
     python -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
-3. **Install the dependencies**:
+4. **Create a virtual environment**:
 
+First navigate to project directory 
     ```sh
-    pip install -r requirements.txt
+    python -m venv search_venv   # On Windows
+    python -m venv search_venv   # Activate environment
     ```
 
-4. **Install Google Cloud SDK**:
-
-    Follow the instructions to install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install).
-
-
-## Usage
-
-1. **Preprocess and Ingest Data**:
-   - Modify and run the scripts in the `Doc_ingestion` folder to preprocess and format your data.
-
-2. **Upload Data to GCP**:
-   - Store the processed data in GCP Cloud Buckets.
-
-3. **Create Datastore**:
-   - Use the GCP Console to create a Datastore for your project. Remember to replace `ProjectID`, `Location`, and `Datastore` with your project-specific details.
-
-4. **Run the Application**:
-   - Use Streamlit to launch the UI and interact with your data.
+5. **Install the dependencies**:
 
     ```sh
-    streamlit run main.py
+    pip install -r .\requirements.txt
     ```
+6. **Fill in project details**
+Fill in project_id, location, engine_id, data_store_id in the app.py, api_call_test.py and Gemini_api.py file
 
-## Notes
+6. **Enable APIs and IAM permissions**
+-Enable VertexAI api, Discovery engine
+-Verify API is working by running api_call_test.py
 
-- Replace `ProjectID`, `Location`, and `Datastore` with your specific project details when setting up the GCP components.
-- Ensure all dependencies are installed using the `requirements.txt` file.
-- Google Cloud SDK must be installed and authenticated for proper GCP interaction.
+7. **Run Streamlit app**:
+```sh
+    streamlit run app.py
+    ```
+## Installation for deployment on Cloud Run
 
----
+TBD
 
-For any further questions or issues, feel free to open an issue on this repository.
+
+
+
