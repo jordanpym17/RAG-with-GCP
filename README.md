@@ -40,9 +40,10 @@ This is for Authorization during development. Be sure to setup the CLI in the SD
 4. **Create a virtual environment**:
 
 First navigate to project directory 
+
     ```sh
-    python -m venv search_venv   # On Windows
-    python -m venv search_venv   # Activate environment
+    python -m venv search_venv   
+    python -m venv search_venv   
     ```
 
 5. **Install the dependencies**:
@@ -58,7 +59,7 @@ Fill in project_id, location, engine_id, data_store_id in the app.py, api_call_t
 -Verify API is working by running api_call_test.py
 
 7. **Run Streamlit app**:
-```sh
+   ```sh
     streamlit run app.py
     ```
 ## Installation for deployment on Cloud Run
