@@ -38,20 +38,17 @@ This is for Authorization during development. Be sure to setup the CLI in the SD
     ```
 
 4. **Create a virtual environment**:
-
-First navigate to project directory 
-
     ```sh
     python -m venv search_venv   
     python -m venv search_venv   
     ```
 
-5. **Install the dependencies**:
+6. **Install the dependencies**:
 
     ```sh
     pip install -r .\requirements.txt
     ```
-6. **Fill in project details**
+7. **Fill in project details**
 Fill in project_id, location, engine_id, data_store_id in the app.py, api_call_test.py and Gemini_api.py file
 
 6. **Enable APIs and IAM permissions**
