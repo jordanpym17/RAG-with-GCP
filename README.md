@@ -48,12 +48,16 @@ This is for Authorization during development. Be sure to setup the CLI in the SD
     ```sh
     pip install -r .\requirements.txt
     ```
-7. **Fill in project details**
-Fill in project_id, location, engine_id, data_store_id in the app.py, api_call_test.py and Gemini_api.py file
+7. **Fill in project details:**
+   
+   Fill in project_id, location, engine_id, data_store_id in the following files: 
+   - app.py
+   - api_call_test.py
+   - Gemini_api.py file
 
 6. **Enable APIs and IAM permissions**
--Enable VertexAI api, Discovery engine
--Verify API is working by running api_call_test.py
+   - Enable VertexAI API, Discovery engine
+   - Verify API is working by running api_call_test.py
 
 7. **Run Streamlit app**:
    ```sh
@@ -61,7 +65,52 @@ Fill in project_id, location, engine_id, data_store_id in the app.py, api_call_t
     ```
 ## Installation for deployment on Cloud Run
 
-TBD
+The following article was followed for deployement: https://medium.com/@faizififita1/how-to-deploy-your-streamlit-web-app-to-google-cloud-run-ba776487c5fe
+
+A summarized version is shown: 
+
+1. **Install docker on your system**
+2. **Create a service account for authentification**
+   
+    - Navigate to IAM & Admin -> Service accounts 
+    - Select 'Create Service Account'
+    - Grant the following roles
+       - Service account admin
+    - Select service account/keys
+    - Create Json key and add to project directory
+      
+4. **Containerize your app**
+   ```sh
+    FROM python:3.8
+   EXPOSE 8080
+   WORKDIR /app
+   COPY . ./
+   RUN pip install -r requirements.txt
+   ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
+    ```
+5. **Verify appliction is working locally**
+    ```sh
+    FROM python:3.8
+   EXPOSE 8080
+   WORKDIR /app
+   COPY . ./
+   RUN pip install -r requirements.txt
+   ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8080", "--server.address=0.0.0.0"]
+    ```
+6. **Build docker container**
+   ```sh
+    gcloud builds submit --tag gcr.io/<PROJECT_ID>/<SOME_PROJECT_NAME> --timeout=2h
+    ```
+   - Verify container is in artifact registry 
+8. **Deploy on Cloud Run using consol UI**
+   
+    - Navigate to Cloud Run tab
+    - Select "Deploy container-service"
+    - Select your image
+    - Select "Allow unauthenticated invocations**
+    - Select "create"
+    - Link will be provided for app
+
 
 
 
